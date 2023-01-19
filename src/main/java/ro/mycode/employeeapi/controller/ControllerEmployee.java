@@ -2,6 +2,7 @@ package ro.mycode.employeeapi.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import ro.mycode.employeeapi.model.Employee;
 import ro.mycode.employeeapi.repository.RepoEmployee;
@@ -16,11 +17,23 @@ public class ControllerEmployee {
     private RepoEmployee repoEmployee;
 
     public ControllerEmployee(RepoEmployee repoEmployee) {
+
         this.repoEmployee = repoEmployee;
     }
 
     @GetMapping("/api/v1/employee")
     public List<Employee> getAllEmployee(){
+
         return repoEmployee.findAll();
+    }
+
+    @GetMapping("api/v1/employee/name")
+    public List<String>getAllName(){
+        return  repoEmployee.getAllNames();
+    }
+
+    @GetMapping("api/v1/employee/{name}")
+    public List<Employee>getAllEmployeeByName(@PathVariable String name){
+        return repoEmployee.getAllEmployeeByName(name);
     }
 }
