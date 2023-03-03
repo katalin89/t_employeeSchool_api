@@ -1,9 +1,6 @@
 package ro.mycode.employeeapi.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ro.mycode.employeeapi.model.Employee;
 import ro.mycode.employeeapi.repository.RepoEmployee;
 
@@ -35,5 +32,12 @@ public class ControllerEmployee {
     @GetMapping("api/v1/employee/{name}")
     public List<Employee>getAllEmployeeByName(@PathVariable String name){
         return repoEmployee.getAllEmployeeByName(name);
+    }
+    
+    @PostMapping("api/v1/add")
+    public  Employee addEmployee(@RequestBody Employee employee){
+        this.repoEmployee.save(employee);
+
+        return  employee;
     }
 }
