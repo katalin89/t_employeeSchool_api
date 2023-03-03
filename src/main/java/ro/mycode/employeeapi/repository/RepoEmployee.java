@@ -18,7 +18,30 @@ public interface RepoEmployee  extends JpaRepository<Employee,Long> {
     @Query
     List<Employee>getAllEmployeeByName(String name);
 
-//    @Transactional
-//    @Modifying
-//    @Query
+    @Transactional
+    @Modifying
+    @Query("delete from Employee  e where e.name like ?1")
+    void deleteEmployeeByName(String name);
+
+    @Transactional
+    @Modifying
+    @Query("delete  from Employee  e where e.id=?1")
+    void deleteById(int id);
+
+    Employee findByName(String name);
+
+    @Transactional
+    @Modifying
+    @Query("select  distinct  e from Employee  e order by e.name")
+    List<Employee>sortByName();
+
+    @Transactional
+    @Modifying
+    @Query("select  distinct  e from Employee e order by e.varsta ")
+    List<Employee>sortByVarsta();
+
+    @Transactional
+    @Modifying
+    @Query("select distinct e from Employee e order by e.adresa")
+    List<Employee>sortByAdresa();
 }

@@ -40,4 +40,14 @@ public class ControllerEmployee {
 
         return  employee;
     }
+
+    @DeleteMapping("api/v1/delete/{name}")
+    public  String deleteEmployee(@PathVariable String name){
+        this.repoEmployee.deleteEmployeeByName(name);
+
+        return  name;
+    }
+
+//    @DeleteMapping("api/v1/delete/{id}")
+//    public long deleteEmployeeBy
 }
