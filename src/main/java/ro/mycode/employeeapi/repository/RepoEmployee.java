@@ -44,4 +44,12 @@ public interface RepoEmployee  extends JpaRepository<Employee,Long> {
     @Modifying
     @Query("select distinct e from Employee e order by e.adresa")
     List<Employee>sortByAdresa();
+
+
+//    @Query("select distinct e.name from Employee e")
+//    List<Employee>verifyIfExists();
+//SELECT DISTINCT name
+//FROM employee;
+
+
 }
