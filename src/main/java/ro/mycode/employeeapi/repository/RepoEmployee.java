@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface RepoEmployee  extends JpaRepository<Employee,Long> {
-    @Query("select distinct e.name from Employee e")
+    @Query("select distinct e.nume from Employee e")
     List<String>getAllNames();
 
     @Query
@@ -20,7 +20,7 @@ public interface RepoEmployee  extends JpaRepository<Employee,Long> {
 
     @Transactional
     @Modifying
-    @Query("delete from Employee  e where e.name like ?1")
+    @Query("delete from Employee  e where e.nume like ?1")
     void deleteEmployeeByName(String name);
 
     @Transactional

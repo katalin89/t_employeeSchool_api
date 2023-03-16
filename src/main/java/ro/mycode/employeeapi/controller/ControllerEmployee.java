@@ -60,7 +60,7 @@ public class ControllerEmployee {
         Employee e = repoEmployee.findByName(employee.getName());
 
         if (employee.getName().equals("") == false) {
-            e.setName(employee.getName());
+            e.setNume(employee.getName());
         } else System.out.println("Nu are valoare");
         if (employee.getVarsta() != 0) {
             e.setVarsta(employee.getVarsta());
