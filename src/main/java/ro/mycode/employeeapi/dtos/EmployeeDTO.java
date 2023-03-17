@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeDTO {
-    private String name="";
+    private String nume="";
     private int varsta=0;
     private String adresa="";
 }

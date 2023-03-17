@@ -22,7 +22,6 @@ public class EmployeeResource {
     }
 
     @GetMapping("/all")
-
     public ResponseEntity<List<Employee>>getAllEmployee(){
         List<Employee> allEmployee=employeeService.getAllEmployee();
         return  new ResponseEntity<>(allEmployee, HttpStatus.OK);
@@ -30,8 +29,14 @@ public class EmployeeResource {
     }
 
     @DeleteMapping("/deleteByname/{name}")
-    ResponseEntity deleteByName(@PathVariable String model){
+    ResponseEntity deleteByName(@PathVariable String nume){
         return  new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @PostMapping("/add")
+    public  ResponseEntity addEmployee(@RequestBody Employee employee){
+        employeeService.addEmployee(employee);
+        return  new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
