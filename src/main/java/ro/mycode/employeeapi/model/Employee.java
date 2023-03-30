@@ -19,6 +19,7 @@ public class Employee  implements Comparable<Employee>{
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "employee_sequence")
     private Long id;
 
+
     @Column(name="name",nullable = false)
     @Size(min=4,message="Numele trebuie sa aiba cel putin 4 caractere")
     private String name;
