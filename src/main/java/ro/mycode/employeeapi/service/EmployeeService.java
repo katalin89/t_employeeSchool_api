@@ -77,4 +77,20 @@ public class EmployeeService {
         }
         this.repoEmployee.saveAndFlush(employee);
     }
+
+    public List<Employee> sortByVarsta() {
+       return  repoEmployee.sortByVarsta();
+    }
+
+    public List<Employee> sortByName() {
+        return  repoEmployee.sortByName();
+    }
+
+    public List<Employee> sortByAdresa() {
+        return repoEmployee.sortByAdresa();
+    }
+
+    public void deleteById(long id) {
+         repoEmployee.deleteById(id);
+    }
 }

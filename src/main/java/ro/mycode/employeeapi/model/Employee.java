@@ -16,8 +16,7 @@ import javax.validation.constraints.Size;
 public class Employee  implements Comparable<Employee>{
     @Id
     @SequenceGenerator(name="employee_sequence",sequenceName = "employee_sequence",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "student_sequence")
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "employee_sequence")
     private Long id;
 
     @Column(name="name",nullable = false)

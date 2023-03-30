@@ -45,4 +45,27 @@ public class EmployeeResource {
         this.employeeService.update(employee,name);
         return  new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
+
+    @GetMapping("/sortByVarsta")
+
+    public List<Employee> sortByVarsta() {
+        return employeeService.sortByVarsta();
+    }
+
+    @GetMapping("/sortByName")
+    public List<Employee> sortByName() {
+        return employeeService.sortByName();
+    }
+
+    @GetMapping("/sortByAdresa")
+    public List<Employee> sortByAdresa() {
+        return employeeService.sortByAdresa();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public long deleteEmployeeById(@PathVariable long id) {
+        employeeService.deleteById(id);
+        return id;
+    }
+
 }
